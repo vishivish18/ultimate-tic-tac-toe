@@ -24,7 +24,7 @@ angular.module('app')
 
 
         $scope.winner = function(arr, candidate) {
-            
+
             //Here I am basically doing the same thing again and it can be done more elegantly using recursion
             //Will make it more concise and optimized later. 
 
@@ -51,7 +51,63 @@ angular.module('app')
                     }
                     if (sum == 3) {
                         alert("Winner is " + candidate)
+                    } else {
+                        //check first column
+                        sum = 0
+                        for (var i = 0; i < arr.length; i++) {
+                            sum = sum + arr[i][0]
+                        }
+                        if (sum == 3) {
+                            alert("Winner is " + candidate)
+                        } else {
+                            //check second column
+                            sum = 0
+                            for (var i = 0; i < arr.length; i++) {
+                                sum = sum + arr[i][1]
+                            }
+                            if (sum == 3) {
+                                alert("Winner is " + candidate)
+                            } else {
+                                //check third column
+                                sum = 0
+                                for (var i = 0; i < arr.length; i++) {
+                                    sum = sum + arr[i][2]
+                                }
+                                if (sum == 3) {
+                                    alert("Winner is " + candidate)
+                                } else {
+                                    //now check the left diagonal
+                                    for (var i = 0; i < arr.length; i++) {
+                                        for (var j = 0; j < arr.length; j++) {
+                                            if (i == j) {
+                                                sum = sum + arr[i][j]
+                                            }
+
+                                        }
+                                    }
+                                    if (sum == 3) {
+                                        alert("Winner is " + candidate)
+                                    } else {
+                                        //now check the right diagonal
+                                        for (var i = 0; i < arr.length; i++) {
+                                            for (var j = 0; j < arr.length; j++) {
+                                                if (i + j == 2) {
+                                                    sum = sum + arr[i][j]
+                                                }
+
+                                            }
+                                        }
+                                        if (sum == 3) {
+                                            alert("Winner is " + candidate)
+                                        }
+                                    }
+
+                                }
+                            }
+                        }
+
                     }
+
                 }
 
             }
