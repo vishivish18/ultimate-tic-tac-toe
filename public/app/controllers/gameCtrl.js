@@ -77,6 +77,7 @@ angular.module('app')
                                     alert("Winner is " + candidate)
                                 } else {
                                     //now check the left diagonal
+                                    sum = 0
                                     for (var i = 0; i < arr.length; i++) {
                                         for (var j = 0; j < arr.length; j++) {
                                             if (i == j) {
@@ -89,6 +90,7 @@ angular.module('app')
                                         alert("Winner is " + candidate)
                                     } else {
                                         //now check the right diagonal
+                                        sum = 0
                                         for (var i = 0; i < arr.length; i++) {
                                             for (var j = 0; j < arr.length; j++) {
                                                 if (i + j == 2) {
