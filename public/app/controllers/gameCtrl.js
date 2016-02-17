@@ -27,6 +27,7 @@ angular.module('app')
 
             //Here I am basically doing the same thing again and it can be done more elegantly using recursion
             //Will make it more concise and optimized later. 
+            //Now looking at the code it looks like a if-else hell, something innovative awaits ! 
 
             var sum = 0
                 //check first row
@@ -118,24 +119,24 @@ angular.module('app')
 
         $scope.play = function(x, y) {
             console.log("game on")
-
-
-            for (var i = 0; i < xValues.length; i++) {
-                for (var j = 0; j < xValues.length; j++) {
-                    console.log(xValues[i][j])
+            if ($scope.Values[x][y] == '') {
+                if ($scope.turn == 1) {
+                    $scope.Values[x][y] = 'X'
+                    xValues[x][y] = 1;
+                    $scope.winner(xValues, 'X');
+                    $scope.turn = !$scope.turn;
+                } else {
+                    $scope.Values[x][y] = '0'
+                    yValues[x][y] = 1;
+                    $scope.winner(yValues, '0');
+                    $scope.turn = !$scope.turn;
                 }
-            }
-            if ($scope.turn == 1) {
-                $scope.Values[x][y] = 'X'
-                xValues[x][y] = 1;
-                $scope.winner(xValues, 'X');
-                $scope.turn = !$scope.turn;
             } else {
-                $scope.Values[x][y] = '0'
-                yValues[x][y] = 1;
-                $scope.winner(yValues, '0');
-                $scope.turn = !$scope.turn;
+                console.log("taken")
             }
+
+
+
 
         }
 
