@@ -1,0 +1,338 @@
+<style type="text/css">
+.cell {
+    background-color: #efefef;
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    border: 1px solid #212121;
+}
+
+.cell:hover {
+    background-color: white;
+    cursor: pointer;
+}
+</style>
+<div class="container">
+    <p>Turn of {{player}}</p>
+    <div class="row" style="margin-bottom:60px;">
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-4 cell" id="00" ng-click="play(0,0)">
+                    <p>{{Values[0][0]}}</p>
+                </div>
+                <div class="col-md-4 cell" id="01" ng-click="play(0,1)" >
+                    <p>{{Values[0][1]}}</p>
+                </div>
+                <div class="col-md-4 cell" id="02" ng-click="play(0,2)">
+                    <p>{{Values[0][2]}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 cell" id="10" ng-click="play(1,0)">
+                    <p>{{Values[1][0]}}</p>
+                </div>
+                <div class="col-md-4 cell" id="11" ng-click="play(1,1)">
+                    <p>{{Values[1][1]}}</p>
+                </div>
+                <div class="col-md-4 cell" id="12" ng-click="play(1,2)">
+                    <p>{{Values[1][2]}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 cell" id="20" ng-click="play(2,0)">
+                    <p>{{Values[2][0]}}</p>
+                </div>
+                <div class="col-md-4 cell" id="21" ng-click="play(2,1)">
+                    <p>{{Values[2][1]}}</p>
+                </div>
+                <div class="col-md-4 cell" id="22" ng-click="play(2,2)">
+                    <p>{{Values[2][2]}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-4 cell">
+                    00
+                </div>
+                <div class="col-md-4 cell">
+                    01
+                </div>
+                <div class="col-md-4 cell">
+                    02
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 cell">
+                    10
+                </div>
+                <div class="col-md-4 cell">
+                    11
+                </div>
+                <div class="col-md-4 cell">
+                    12
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 cell">
+                    20
+                </div>
+                <div class="col-md-4 cell">
+                    21
+                </div>
+                <div class="col-md-4 cell">
+                    22
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-4 cell">
+                    00
+                </div>
+                <div class="col-md-4 cell">
+                    01
+                </div>
+                <div class="col-md-4 cell">
+                    02
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 cell">
+                    10
+                </div>
+                <div class="col-md-4 cell">
+                    11
+                </div>
+                <div class="col-md-4 cell">
+                    12
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 cell">
+                    20
+                </div>
+                <div class="col-md-4 cell">
+                    21
+                </div>
+                <div class="col-md-4 cell">
+                    22
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-bottom:60px;">
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-4 cell">
+                    00
+                </div>
+                <div class="col-md-4 cell">
+                    01
+                </div>
+                <div class="col-md-4 cell">
+                    02
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 cell">
+                    10
+                </div>
+                <div class="col-md-4 cell">
+                    11
+                </div>
+                <div class="col-md-4 cell">
+                    12
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 cell">
+                    20
+                </div>
+                <div class="col-md-4 cell">
+                    21
+                </div>
+                <div class="col-md-4 cell">
+                    22
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-4 cell">
+                    00
+                </div>
+                <div class="col-md-4 cell">
+                    01
+                </div>
+                <div class="col-md-4 cell">
+                    02
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 cell">
+                    10
+                </div>
+                <div class="col-md-4 cell">
+                    11
+                </div>
+                <div class="col-md-4 cell">
+                    12
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 cell">
+                    20
+                </div>
+                <div class="col-md-4 cell">
+                    21
+                </div>
+                <div class="col-md-4 cell">
+                    22
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-4 cell">
+                    00
+                </div>
+                <div class="col-md-4 cell">
+                    01
+                </div>
+                <div class="col-md-4 cell">
+                    02
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 cell">
+                    10
+                </div>
+                <div class="col-md-4 cell">
+                    11
+                </div>
+                <div class="col-md-4 cell">
+                    12
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 cell">
+                    20
+                </div>
+                <div class="col-md-4 cell">
+                    21
+                </div>
+                <div class="col-md-4 cell">
+                    22
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-bottom:60px;">
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-4 cell">
+                    00
+                </div>
+                <div class="col-md-4 cell">
+                    01
+                </div>
+                <div class="col-md-4 cell">
+                    02
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 cell">
+                    10
+                </div>
+                <div class="col-md-4 cell">
+                    11
+                </div>
+                <div class="col-md-4 cell">
+                    12
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 cell">
+                    20
+                </div>
+                <div class="col-md-4 cell">
+                    21
+                </div>
+                <div class="col-md-4 cell">
+                    22
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-4 cell">
+                    00
+                </div>
+                <div class="col-md-4 cell">
+                    01
+                </div>
+                <div class="col-md-4 cell">
+                    02
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 cell">
+                    10
+                </div>
+                <div class="col-md-4 cell">
+                    11
+                </div>
+                <div class="col-md-4 cell">
+                    12
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 cell">
+                    20
+                </div>
+                <div class="col-md-4 cell">
+                    21
+                </div>
+                <div class="col-md-4 cell">
+                    22
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-4 cell">
+                    00
+                </div>
+                <div class="col-md-4 cell">
+                    01
+                </div>
+                <div class="col-md-4 cell">
+                    02
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 cell">
+                    10
+                </div>
+                <div class="col-md-4 cell">
+                    11
+                </div>
+                <div class="col-md-4 cell">
+                    12
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 cell">
+                    20
+                </div>
+                <div class="col-md-4 cell">
+                    21
+                </div>
+                <div class="col-md-4 cell">
+                    22
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
