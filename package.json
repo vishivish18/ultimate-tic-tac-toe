@@ -1,7 +1,7 @@
 {
-  "name": "HomeKaFood",
+  "name": "ultimate-tic-tac-toe",
   "version": "0.0.0",
-  "description": "HomeKaFood",
+  "description": "ultimate-tic-tac-toe",
   "main": "app.js",
   "engines": {
     "node": "4.1.1"
@@ -37,7 +37,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/vishivish18/home-ka-food.git"
+    "url": "git://github.com/vishivish18/ultimate-tic-tac-toe.git"
   },
   "keywords": [
     "Mongo",
@@ -48,6 +48,6 @@
   "author": "vishalR",
   "license": "BSD-2-Clause",
   "bugs": {
-    "url": "git://github.com/vishivish18/home-ka-food.git/issues"
+    "url": "git://github.com/vishivish18/ultimate-tic-tac-toe/issues"
   }
 }
