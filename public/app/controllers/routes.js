@@ -4,28 +4,28 @@ angular.module('app')
         $urlRouterProvider.otherwise('/');
 
         $stateProvider
-            .state('app', {
-                url: '/',
-                views: {
-                    'content': {
-                        templateUrl: '/game.html',
-                        controller: 'gameCtrl'
-
-                    }
-                }
-            })
-
-        .state('admin', {
-            url: '/admin',
+        .state('home', {
+            url: '/',
             views: {                
                 'content': {
-                    templateUrl: '/admin.html',
-                    controller: 'adminCtrl'
+                    templateUrl: '/home.html',
+                    controller: 'homeCtrl'
 
                 }
             }
         })
 
+        .state('home.game', {
+            url: 'game/:id',
+            views: {
+                'content@': {
+                    templateUrl: '/game.html',
+                    controller: 'gameCtrl'
+                    
+                }
+            }
+
+        })
 
 
         $locationProvider.html5Mode(true)

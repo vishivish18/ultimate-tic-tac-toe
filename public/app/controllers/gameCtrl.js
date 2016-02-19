@@ -1,5 +1,69 @@
 angular.module('app')
-    .controller('gameCtrl', function($scope, $http) {
+    .controller('gameCtrl', function($scope, $http, $stateParams, $rootScope, $location) {
+
+        var socket = io();
+        var id = $stateParams.id;
+        $scope.status = "Waiting for players"
+        $scope.setup = function() {
+            // on connection to server send the id of games url
+            socket.on('connect', function() {
+                socket.emit('load', id);
+            });
+
+
+
+            // receive the names and avatars of all people in the chat room
+            socket.on('peopleinchat', function(data) {
+
+                if (data.number === 0) {
+
+                    console.log("data.number is 0")
+
+                    // call the server-side function 'login' and send user's parameters                    
+                    socket.emit('login', {
+                        user: $rootScope.currentUser,
+                        id: id
+                    });
+
+                } else if (data.number === 1) {
+                    console.log("data.number is 1")
+                    console.log(data)
+                    $scope.status = "Player Joined"
+                    $scope.$apply()
+                    $scope.chatWith = data.user;
+                    console.log($scope.chatWith)
+                    $scope.name = data.user
+                    console.log("scope name is" + $scope.name)
+
+                    socket.emit('login', {
+                        user: $rootScope.currentUser,
+                        id: id
+                    });
+
+                } else {
+                    console.log("Chat is full")
+                }
+
+            });
+            // Other useful 
+
+
+            socket.on('leave', function(data) {
+
+                if (data.boolean && id == data.room) {
+
+                    console.log("left", data);
+                    //showMessage("somebodyLeft", data);
+                    //chats.empty();
+                }
+
+            });
+
+        }
+
+        $scope.setup();
+
+
         $scope.turn = 1
 
 
@@ -123,6 +187,11 @@ angular.module('app')
                 if ($scope.turn == 1) {
                     $scope.Values[x][y] = 'X'
                     xValues[x][y] = 1;
+                    socket.emit('move', {
+                        user: 'X',
+                        x: x,
+                        y: y
+                    });
                     $scope.winner(xValues, 'X');
                     $scope.turn = !$scope.turn;
                 } else {
@@ -134,9 +203,6 @@ angular.module('app')
             } else {
                 console.log("taken")
             }
-
-
-
 
         }
 

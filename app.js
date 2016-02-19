@@ -25,3 +25,4 @@ var io = require('socket.io').listen(app.listen(port, function() {
 }));
 
 
+require('./routes')(app, io);
