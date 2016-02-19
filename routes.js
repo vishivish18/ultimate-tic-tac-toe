@@ -3,7 +3,7 @@ module.exports = function(app,io){
 	console.log("hello");
 	// Initialize a new socket.io application, named 'chat'
 	var chat = io.on('connection', function (socket) {
-		console.log(socket.id)
+		
 		socket.on('load',function(data){
 			
 			//client sends the games url in data
@@ -33,7 +33,7 @@ module.exports = function(app,io){
 		// and add them to the room
 
 		socket.on('move',function(data){
-			console.log("the move is "+data.x + data.y )
+			console.log("the move is "+data.x + data.y + 'by player'+data.user )
 
 		})
 
@@ -41,9 +41,9 @@ module.exports = function(app,io){
 		socket.on('login', function(data) {
 
 			console.log("login action triggered")
-			console.log(data);
+		
 			var room = findClientsSocket(io, data.id);
-			console.log(room);
+		
 			// Only two people per room are allowed
 			if (room.length < 2) {
 
@@ -127,9 +127,7 @@ function findClientsSocket(io,roomId, namespace) {
 
 	if (ns) {
 		console.log("if condition executed");		
-		for (var id in ns.connected) {
-			console.log(roomId)
-			console.log(ns.connected[id].rooms);
+		for (var id in ns.connected) {			
 
 			if(roomId) {
 				var index = ns.connected[id].rooms.indexOf(roomId) ;

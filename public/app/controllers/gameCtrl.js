@@ -197,6 +197,11 @@ angular.module('app')
                 } else {
                     $scope.Values[x][y] = '0'
                     yValues[x][y] = 1;
+                    socket.emit('move', {
+                        user: '0',
+                        x: x,
+                        y: y
+                    });
                     $scope.winner(yValues, '0');
                     $scope.turn = !$scope.turn;
                 }
