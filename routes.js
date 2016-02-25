@@ -109,13 +109,9 @@ module.exports = function(app, io) {
 
 
         // Handle the sending of messages
-        /* socket.on('move', function(data) {
-             console.log("A new move recieved")
-             console.log(data)
-                 // When the server receives a message, it sends it to the other person in the room.
-            	socket.broadcast.to(socket.room).emit('receive', { user: data.user, x: data.x, y: data.y });
-             socket.broadcast`.emit('receive', { user: data.user, x: data.x, y: data.y });
-         });*/
+         socket.on('winner', function(data) {
+            socket.broadcast.to(socket.room).emit('winner', { user: data.user});
+         });
         socket.on('move', function(data) {
             console.log("A new message recieved")
             console.log(data)

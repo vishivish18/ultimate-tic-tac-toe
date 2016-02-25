@@ -65,32 +65,21 @@ angular.module('app')
                 if (data.boolean && id == data.room) {
 
                     console.log("left", data);
-                    //showMessage("somebodyLeft", data);
-                    //chats.empty();
+
                 }
 
             });
-
-            /* socket.on('receive', function(data) {                        
-                 console.log(data)
-                 if(data.user == "X"){
-                     $scope.Values[data.x][data.y] = 'X'
-                     xValues[data.x][data.y] = 1;
-                     $scope.turn = !$scope.turn;
-                 }else{
-                     $scope.Values[data.x][data.y] = '0'
-                     yValues[data.x][data.y] = 1;
-                     $scope.turn = !$scope.turn;
-                 }                
-
-                  
-                 
-             });*/
             socket.on('receive', function(data) {
 
                 console.log("Recieved by me")
                 console.log(data);
-                
+
+            });
+            socket.on('winner', function(data) {
+
+                console.log("Winner Declared"+data.user)
+                alert("Winner is "+ data.user)                
+
             });
 
         }
@@ -134,6 +123,10 @@ angular.module('app')
             }
             if (sum == 3) {
                 alert("Winner is " + candidate)
+                socket.emit('winner', {
+                    user: candidate
+                });
+
             } else {
                 //check second row
                 sum = 0
@@ -142,6 +135,9 @@ angular.module('app')
                 }
                 if (sum == 3) {
                     alert("Winner is " + candidate)
+                    socket.emit('winner', {
+                        user: candidate
+                    });
                 } else {
                     //check third row
                     sum = 0
@@ -150,6 +146,9 @@ angular.module('app')
                     }
                     if (sum == 3) {
                         alert("Winner is " + candidate)
+                        socket.emit('winner', {
+                            user: candidate
+                        });
                     } else {
                         //check first column
                         sum = 0
@@ -158,6 +157,9 @@ angular.module('app')
                         }
                         if (sum == 3) {
                             alert("Winner is " + candidate)
+                            socket.emit('winner', {
+                                user: candidate
+                            });
                         } else {
                             //check second column
                             sum = 0
@@ -166,6 +168,9 @@ angular.module('app')
                             }
                             if (sum == 3) {
                                 alert("Winner is " + candidate)
+                                socket.emit('winner', {
+                                    user: candidate
+                                });
                             } else {
                                 //check third column
                                 sum = 0
@@ -174,6 +179,9 @@ angular.module('app')
                                 }
                                 if (sum == 3) {
                                     alert("Winner is " + candidate)
+                                    socket.emit('winner', {
+                                        user: candidate
+                                    });
                                 } else {
                                     //now check the left diagonal
                                     sum = 0
@@ -187,6 +195,9 @@ angular.module('app')
                                     }
                                     if (sum == 3) {
                                         alert("Winner is " + candidate)
+                                        socket.emit('winner', {
+                                            user: candidate
+                                        });
                                     } else {
                                         //now check the right diagonal
                                         sum = 0
@@ -200,6 +211,9 @@ angular.module('app')
                                         }
                                         if (sum == 3) {
                                             alert("Winner is " + candidate)
+                                            socket.emit('winner', {
+                                                user: candidate
+                                            });
                                         }
                                     }
 
@@ -214,26 +228,28 @@ angular.module('app')
             }
         }
 
-        
-         socket.on('rtest', function(data) {
 
-                console.log("Recieved by me in test")
-                console.log(data);               
-                   if(data.user == "X"){
-                     $scope.Values[data.x][data.y] = 'X'
-                     xValues[data.x][data.y] = 1;
-                     $scope.turn = !$scope.turn;
-                 }else{
-                     $scope.Values[data.x][data.y] = '0'
-                     yValues[data.x][data.y] = 1;
-                     $scope.turn = !$scope.turn;
-                 }                
+        socket.on('rtest', function(data) {
 
-                
-            });
+            console.log("Recieved by me in test")
+            console.log(data);
+            if (data.user == "X") {
+                $scope.Values[data.x][data.y] = 'X'
+                xValues[data.x][data.y] = 1;
+                $scope.$digest();
+                $scope.turn = !$scope.turn;
+            } else {
+                $scope.Values[data.x][data.y] = '0'
+                yValues[data.x][data.y] = 1;
+                $scope.$digest();
+                $scope.turn = !$scope.turn;
+            }
+
+
+        });
 
         $scope.play = function(x, y) {
-            
+
             console.log("game on")
             if ($scope.Values[x][y] == '') {
                 if ($scope.turn == true && $scope.player == 'X') {
