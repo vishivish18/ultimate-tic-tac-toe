@@ -116,7 +116,7 @@ module.exports = function(app, io) {
             console.log("A new message recieved")
             console.log(data)
                 // When the server receives a message, it sends it to the other person in the room.
-            socket.broadcast.to(socket.room).emit('rtest', { user: data.user, x: data.x, y: data.y });
+            socket.broadcast.to(socket.room).emit('sendMove', { user: data.user,a: data.a, b: data.b, x: data.x, y: data.y });
 
         });
 

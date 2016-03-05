@@ -77,8 +77,8 @@ angular.module('app')
             });
             socket.on('winner', function(data) {
 
-                console.log("Winner Declared"+data.user)
-                alert("Winner is "+ data.user)                
+                console.log("Winner Declared" + data.user)
+                alert("Winner is " + data.user)
 
             });
 
@@ -229,10 +229,13 @@ angular.module('app')
         }
 
 
-        socket.on('rtest', function(data) {
+        socket.on('sendMove', function(data) {
 
             console.log("Recieved by me in test")
             console.log(data);
+            $scope.id = String(data.x) + String(data.y)
+            $scope.setValidMove($scope.id);
+
             if (data.user == "X") {
                 $scope.Values[data.x][data.y] = 'X'
                 xValues[data.x][data.y] = 1;
@@ -248,15 +251,74 @@ angular.module('app')
 
         });
 
-        $scope.play = function(x, y) {
 
-            console.log("game on")
+        $scope.setValidMove = function(id) {
+            switch (id) {
+                case '00':
+                    $scope.leftTop = true;
+                    break;
+
+                case '01':
+                    $scope.middleTop = true;
+                    break;
+
+                case '02':
+                    $scope.rightTop = true;
+                    break;
+
+                case '10':
+                    $scope.leftMiddle = true;
+                    break;
+
+                case '11':
+                    $scope.middleMiddle = true;
+                    break;
+
+                case '12':
+                    $scope.rightMiddle = true;
+                    break;
+
+                case '20':
+                    $scope.leftBottom = true;
+                    break;
+
+                case '21':
+                    $scope.middleBottom = true;
+                    break;
+
+                case '22':
+                    $scope.rightBottom = true;
+                    break;
+
+                case 'reset':
+                    $scope.leftTop = false,
+                        $scope.middleTop = false,
+                        $scope.rightTop = false,
+                        $scope.leftMiddle = false,
+                        $scope.middleMiddle = false,
+                        $scope.rightMiddle = false,
+                        $scope.leftBottom = false,
+                        $scope.middleBottom = false,
+                        $scope.rightBottom = false
+
+                default:
+
+            }
+
+        }
+
+
+
+        $scope.play = function(a, b, x, y) {
             if ($scope.Values[x][y] == '') {
                 if ($scope.turn == true && $scope.player == 'X') {
                     $scope.Values[x][y] = 'X'
                     xValues[x][y] = 1;
+                    $scope.setValidMove('reset')
                     socket.emit('move', {
                         user: 'X',
+                        a: a,
+                        b: b,
                         x: x,
                         y: y
                     });
@@ -266,8 +328,11 @@ angular.module('app')
                 } else if ($scope.turn == false && $scope.player == '0') {
                     $scope.Values[x][y] = '0'
                     yValues[x][y] = 1;
+                    $scope.setValidMove('reset')
                     socket.emit('move', {
                         user: '0',
+                        a: a,
+                        b: b,
                         x: x,
                         y: y
                     });
