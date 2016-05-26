@@ -64,109 +64,111 @@
 }
 </style>
 <div class="container">
+{{status}}
+{{turn}}
     <div class="row" style="margin-bottom:30px; margin-top:30px;">
         <div class="col-xs-4" id="00" ng-class="leftTop ? 'allowed-cell' : ''">
             <div class="row">
                 <div class="col-xs-4 cell top-left" ng-click="play(0,0,0,0)">
-                    <p>{{Values[0][0]}}</p>
+                    <p>{{Values00[0][0]}}</p>
                 </div>
                 <div class="col-xs-4 cell top-middle" ng-click="play(0,0,0,1)">
-                    <p>{{Values[0][1]}}</p>
+                    <p>{{Values00[0][1]}}</p>
                 </div>
                 <div class="col-xs-4 cell top-right" ng-click="play(0,0,0,2)">
-                    <p>{{Values[0][2]}}</p>
+                    <p>{{Values00[0][2]}}</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-4 cell middle-left" ng-click="play(0,0,1,0)">
-                    <p>{{Values[1][0]}}</p>
+                    <p>{{Values00[1][0]}}</p>
                 </div>
                 <div class="col-xs-4 cell middle-middle" ng-click="play(0,0,1,1)">
-                    <p>{{Values[1][1]}}</p>
+                    <p>{{Values00[1][1]}}</p>
                 </div>
                 <div class="col-xs-4 cell middle-right" ng-click="play(0,0,1,2)">
-                    <p>{{Values[1][2]}}</p>
+                    <p>{{Values00[1][2]}}</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-4 cell bottom-left" ng-click="play(0,0,2,0)">
-                    <p>{{Values[2][0]}}</p>
+                    <p>{{Values00[2][0]}}</p>
                 </div>
                 <div class="col-xs-4 cell bottom-middle" ng-click="play(0,0,2,1)">
-                    <p>{{Values[2][1]}}</p>
+                    <p>{{Values00[2][1]}}</p>
                 </div>
                 <div class="col-xs-4 cell bottom-right" ng-click="play(0,0,2,2)">
-                    <p>{{Values[2][2]}}</p>
+                    <p>{{Values00[2][2]}}</p>
                 </div>
             </div>
         </div>
         <div class="col-xs-4" id="01" ng-class="middleTop ? 'allowed-cell' : ''">
             <div class="row">
                 <div class="col-xs-4 cell top-left" ng-click="play(0,1,0,0)">
-                    <p>{{Values[0][0]}}</p>
+                    <p>{{Values01[0][0]}}</p>
                 </div>
                 <div class="col-xs-4 cell top-middle" ng-click="play(0,1,0,1)">
-                    <p>{{Values[0][1]}}</p>
+                    <p>{{Values01[0][1]}}</p>
                 </div>
                 <div class="col-xs-4 cell top-right" ng-click="play(0,1,0,2)">
-                    <p>{{Values[0][2]}}</p>
+                    <p>{{Values01[0][2]}}</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-4 cell middle-left" ng-click="play(0,1,1,0)">
-                    <p>{{Values[1][0]}}</p>
+                    <p>{{Values01[1][0]}}</p>
                 </div>
                 <div class="col-xs-4 cell middle-middle" ng-click="play(0,1,1,1)">
-                    <p>{{Values[1][1]}}</p>
+                    <p>{{Values01[1][1]}}</p>
                 </div>
                 <div class="col-xs-4 cell middle-right" ng-click="play(0,1,1,2)">
-                    <p>{{Values[1][2]}}</p>
+                    <p>{{Values01[1][2]}}</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-4 cell bottom-left" ng-click="play(0,1,2,0)">
-                    <p>{{Values[2][0]}}</p>
+                    <p>{{Values01[2][0]}}</p>
                 </div>
                 <div class="col-xs-4 cell bottom-middle" ng-click="play(0,1,2,1)">
-                    <p>{{Values[2][1]}}</p>
+                    <p>{{Values01[2][1]}}</p>
                 </div>
                 <div class="col-xs-4 cell bottom-right" ng-click="play(0,1,2,2)">
-                    <p>{{Values[2][2]}}</p>
+                    <p>{{Values01[2][2]}}</p>
                 </div>
             </div>
         </div>
         <div class="col-xs-4" id="02" ng-class="rightTop ? 'allowed-cell' : ''">
             <div class="row">
                 <div class="col-xs-4 cell top-left" ng-click="play(0,2,0,0)">
-                    <p>{{Values[0][0]}}</p>
+                    <p>{{Values02[0][0]}}</p>
                 </div>
                 <div class="col-xs-4 cell top-middle" ng-click="play(0,2,0,1)">
-                    <p>{{Values[0][1]}}</p>
+                    <p>{{Values02[0][1]}}</p>
                 </div>
                 <div class="col-xs-4 cell top-right" ng-click="play(0,2,0,2)">
-                    <p>{{Values[0][2]}}</p>
+                    <p>{{Values02[0][2]}}</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-4 cell middle-left" ng-click="play(0,2,1,0)">
-                    <p>{{Values[1][0]}}</p>
+                    <p>{{Values02[1][0]}}</p>
                 </div>
                 <div class="col-xs-4 cell middle-middle" ng-click="play(0,2,1,1)">
-                    <p>{{Values[1][1]}}</p>
+                    <p>{{Values02[1][1]}}</p>
                 </div>
                 <div class="col-xs-4 cell middle-right" ng-click="play(0,2,1,2)">
-                    <p>{{Values[1][2]}}</p>
+                    <p>{{Values02[1][2]}}</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-4 cell bottom-left" ng-click="play(0,2,2,0)">
-                    <p>{{Values[2][0]}}</p>
+                    <p>{{Values02[2][0]}}</p>
                 </div>
                 <div class="col-xs-4 cell bottom-middle" ng-click="play(0,2,2,1)">
-                    <p>{{Values[2][1]}}</p>
+                    <p>{{Values02[2][1]}}</p>
                 </div>
                 <div class="col-xs-4 cell bottom-right" ng-click="play(0,2,2,2)">
-                    <p>{{Values[2][2]}}</p>
+                    <p>{{Values02[2][2]}}</p>
                 </div>
             </div>
         </div>
@@ -175,105 +177,105 @@
         <div class="col-xs-4" id="10" ng-class="leftMiddle ? 'allowed-cell' : ''">
             <div class="row">
                 <div class="col-xs-4 cell top-left" ng-click="play(1,0,0,0)">
-                    <p>{{Values[0][0]}}</p>
+                    <p>{{Values10[0][0]}}</p>
                 </div>
                 <div class="col-xs-4 cell top-middle" ng-click="play(1,0,0,1)">
-                    <p>{{Values[0][1]}}</p>
+                    <p>{{Values10[0][1]}}</p>
                 </div>
                 <div class="col-xs-4 cell top-right" ng-click="play(1,0,0,2)">
-                    <p>{{Values[0][2]}}</p>
+                    <p>{{Values10[0][2]}}</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-4 cell middle-left" ng-click="play(1,0,1,0)">
-                    <p>{{Values[1][0]}}</p>
+                    <p>{{Values10[1][0]}}</p>
                 </div>
                 <div class="col-xs-4 cell middle-middle" ng-click="play(1,0,1,1)">
-                    <p>{{Values[1][1]}}</p>
+                    <p>{{Values10[1][1]}}</p>
                 </div>
                 <div class="col-xs-4 cell middle-right" ng-click="play(1,0,1,2)">
-                    <p>{{Values[1][2]}}</p>
+                    <p>{{Values10[1][2]}}</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-4 cell bottom-left" ng-click="play(1,0,2,0)">
-                    <p>{{Values[2][0]}}</p>
+                    <p>{{Values10[2][0]}}</p>
                 </div>
                 <div class="col-xs-4 cell bottom-middle" ng-click="play(1,0,2,1)">
-                    <p>{{Values[2][1]}}</p>
+                    <p>{{Values10[2][1]}}</p>
                 </div>
                 <div class="col-xs-4 cell bottom-right" ng-click="play(1,0,2,2)">
-                    <p>{{Values[2][2]}}</p>
+                    <p>{{Values10[2][2]}}</p>
                 </div>
             </div>
         </div>
         <div class="col-xs-4" id="11" ng-class="middleMiddle ? 'allowed-cell' : ''">
             <div class="row">
                 <div class="col-xs-4 cell top-left" ng-click="play(1,1,0,0)">
-                    <p>{{Values[0][0]}}</p>
+                    <p>{{Values11[0][0]}}</p>
                 </div>
                 <div class="col-xs-4 cell top-middle" ng-click="play(1,1,0,1)">
-                    <p>{{Values[0][1]}}</p>
+                    <p>{{Values11[0][1]}}</p>
                 </div>
                 <div class="col-xs-4 cell top-right" ng-click="play(1,1,0,2)">
-                    <p>{{Values[0][2]}}</p>
+                    <p>{{Values11[0][2]}}</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-4 cell middle-left" ng-click="play(1,1,1,0)">
-                    <p>{{Values[1][0]}}</p>
+                    <p>{{Values11[1][0]}}</p>
                 </div>
                 <div class="col-xs-4 cell middle-middle" ng-click="play(1,1,1,1)">
-                    <p>{{Values[1][1]}}</p>
+                    <p>{{Values11[1][1]}}</p>
                 </div>
                 <div class="col-xs-4 cell middle-right" ng-click="play(1,1,1,2)">
-                    <p>{{Values[1][2]}}</p>
+                    <p>{{Values11[1][2]}}</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-4 cell bottom-left" ng-click="play(1,1,2,0)">
-                    <p>{{Values[2][0]}}</p>
+                    <p>{{Values11[2][0]}}</p>
                 </div>
                 <div class="col-xs-4 cell bottom-middle" ng-click="play(1,1,2,1)">
-                    <p>{{Values[2][1]}}</p>
+                    <p>{{Values11[2][1]}}</p>
                 </div>
                 <div class="col-xs-4 cell bottom-right" ng-click="play(1,1,2,2)">
-                    <p>{{Values[2][2]}}</p>
+                    <p>{{Values11[2][2]}}</p>
                 </div>
             </div>
         </div>
         <div class="col-xs-4" id="12" ng-class="rightMiddle ? 'allowed-cell' : ''">
             <div class="row">
                 <div class="col-xs-4 cell top-left" ng-click="play(1,2,0,0)">
-                    <p>{{Values[0][0]}}</p>
+                    <p>{{Values12[0][0]}}</p>
                 </div>
                 <div class="col-xs-4 cell top-middle" ng-click="play(1,2,0,1)">
-                    <p>{{Values[0][1]}}</p>
+                    <p>{{Values12[0][1]}}</p>
                 </div>
                 <div class="col-xs-4 cell top-right" ng-click="play(1,2,0,2)">
-                    <p>{{Values[0][2]}}</p>
+                    <p>{{Values12[0][2]}}</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-4 cell middle-left" ng-click="play(1,2,1,0)">
-                    <p>{{Values[1][0]}}</p>
+                    <p>{{Values12[1][0]}}</p>
                 </div>
                 <div class="col-xs-4 cell middle-middle" ng-click="play(1,2,1,1)">
-                    <p>{{Values[1][1]}}</p>
+                    <p>{{Values12[1][1]}}</p>
                 </div>
                 <div class="col-xs-4 cell middle-right" ng-click="play(1,2,1,2)">
-                    <p>{{Values[1][2]}}</p>
+                    <p>{{Values12[1][2]}}</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-4 cell bottom-left" ng-click="play(1,2,2,0)">
-                    <p>{{Values[2][0]}}</p>
+                    <p>{{Values12[2][0]}}</p>
                 </div>
                 <div class="col-xs-4 cell bottom-middle" ng-click="play(1,2,2,1)">
-                    <p>{{Values[2][1]}}</p>
+                    <p>{{Values12[2][1]}}</p>
                 </div>
                 <div class="col-xs-4 cell bottom-right" ng-click="play(1,2,2,2)">
-                    <p>{{Values[2][2]}}</p>
+                    <p>{{Values12[2][2]}}</p>
                 </div>
             </div>
         </div>
@@ -282,105 +284,105 @@
         <div class="col-xs-4" id="20" ng-class="leftBottom ? 'allowed-cell' : ''">
             <div class="row">
                 <div class="col-xs-4 cell top-left" ng-click="play(2,0,0,0)">
-                    <p>{{Values[0][0]}}</p>
+                    <p>{{Values20[0][0]}}</p>
                 </div>
                 <div class="col-xs-4 cell top-middle" ng-click="play(2,0,0,1)">
-                    <p>{{Values[0][1]}}</p>
+                    <p>{{Values20[0][1]}}</p>
                 </div>
                 <div class="col-xs-4 cell top-right" ng-click="play(2,0,0,2)">
-                    <p>{{Values[0][2]}}</p>
+                    <p>{{Values20[0][2]}}</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-4 cell middle-left" ng-click="play(2,0,1,0)">
-                    <p>{{Values[1][0]}}</p>
+                    <p>{{Values20[1][0]}}</p>
                 </div>
                 <div class="col-xs-4 cell middle-middle" ng-click="play(2,0,1,1)">
-                    <p>{{Values[1][1]}}</p>
+                    <p>{{Values20[1][1]}}</p>
                 </div>
                 <div class="col-xs-4 cell middle-right" ng-click="play(2,0,1,2)">
-                    <p>{{Values[1][2]}}</p>
+                    <p>{{Values20[1][2]}}</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-4 cell bottom-left" ng-click="play(2,0,2,0)">
-                    <p>{{Values[2][0]}}</p>
+                    <p>{{Values20[2][0]}}</p>
                 </div>
                 <div class="col-xs-4 cell bottom-middle" ng-click="play(2,0,2,1)">
-                    <p>{{Values[2][1]}}</p>
+                    <p>{{Values20[2][1]}}</p>
                 </div>
                 <div class="col-xs-4 cell bottom-right" ng-click="play(2,0,2,2)">
-                    <p>{{Values[2][2]}}</p>
+                    <p>{{Values20[2][2]}}</p>
                 </div>
             </div>
         </div>
         <div class="col-xs-4" id="21" ng-class="middleBottom ? 'allowed-cell' : ''">
             <div class="row">
                 <div class="col-xs-4 cell top-left" ng-click="play(2,1,0,0)">
-                    <p>{{Values[0][0]}}</p>
+                    <p>{{Values21[0][0]}}</p>
                 </div>
                 <div class="col-xs-4 cell top-middle" ng-click="play(2,1,0,1)">
-                    <p>{{Values[0][1]}}</p>
+                    <p>{{Values21[0][1]}}</p>
                 </div>
                 <div class="col-xs-4 cell top-right" ng-click="play(2,1,0,2)">
-                    <p>{{Values[0][2]}}</p>
+                    <p>{{Values21[0][2]}}</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-4 cell middle-left" ng-click="play(2,1,1,0)">
-                    <p>{{Values[1][0]}}</p>
+                    <p>{{Values21[1][0]}}</p>
                 </div>
                 <div class="col-xs-4 cell middle-middle" ng-click="play(2,1,1,1)">
-                    <p>{{Values[1][1]}}</p>
+                    <p>{{Values21[1][1]}}</p>
                 </div>
                 <div class="col-xs-4 cell middle-right" ng-click="play(2,1,1,2)">
-                    <p>{{Values[1][2]}}</p>
+                    <p>{{Values21[1][2]}}</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-4 cell bottom-left" ng-click="play(2,1,2,0)">
-                    <p>{{Values[2][0]}}</p>
+                    <p>{{Values21[2][0]}}</p>
                 </div>
                 <div class="col-xs-4 cell bottom-middle" ng-click="play(2,1,2,1)">
-                    <p>{{Values[2][1]}}</p>
+                    <p>{{Values21[2][1]}}</p>
                 </div>
                 <div class="col-xs-4 cell bottom-right" ng-click="play(2,1,2,2)">
-                    <p>{{Values[2][2]}}</p>
+                    <p>{{Values21[2][2]}}</p>
                 </div>
             </div>
         </div>
         <div class="col-xs-4" id="22" ng-class="rightBottom ? 'allowed-cell' : ''">
             <div class="row">
                 <div class="col-xs-4 cell top-left" ng-click="play(2,2,0,0)">
-                    <p>{{Values[0][0]}}</p>
+                    <p>{{Values22[0][0]}}</p>
                 </div>
                 <div class="col-xs-4 cell top-middle" ng-click="play(2,2,0,1)">
-                    <p>{{Values[0][1]}}</p>
+                    <p>{{Values22[0][1]}}</p>
                 </div>
                 <div class="col-xs-4 cell top-right" ng-click="play(2,2,0,2)">
-                    <p>{{Values[0][2]}}</p>
+                    <p>{{Values22[0][2]}}</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-4 cell middle-left" ng-click="play(2,2,1,0)">
-                    <p>{{Values[1][0]}}</p>
+                    <p>{{Values22[1][0]}}</p>
                 </div>
                 <div class="col-xs-4 cell middle-middle" ng-click="play(2,2,1,1)">
-                    <p>{{Values[1][1]}}</p>
+                    <p>{{Values22[1][1]}}</p>
                 </div>
                 <div class="col-xs-4 cell middle-right" ng-click="play(2,2,1,2)">
-                    <p>{{Values[1][2]}}</p>
+                    <p>{{Values22[1][2]}}</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-4 cell bottom-left" ng-click="play(2,2,2,0)">
-                    <p>{{Values[2][0]}}</p>
+                    <p>{{Values22[2][0]}}</p>
                 </div>
                 <div class="col-xs-4 cell bottom-middle" ng-click="play(2,2,2,1)">
-                    <p>{{Values[2][1]}}</p>
+                    <p>{{Values22[2][1]}}</p>
                 </div>
                 <div class="col-xs-4 cell bottom-right" ng-click="play(2,2,2,2)">
-                    <p>{{Values[2][2]}}</p>
+                    <p>{{Values22[2][2]}}</p>
                 </div>
             </div>
         </div>

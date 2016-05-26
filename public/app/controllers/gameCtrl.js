@@ -13,7 +13,7 @@ angular.module('app')
 
 
             socket.on('setplayer', function(data) {
-                console.log("setplayer emitted", data)
+                //console.log("setplayer emitted", data)
                 $scope.player = data.player
             })
 
@@ -22,8 +22,8 @@ angular.module('app')
             socket.on('peopleinchat', function(data) {
                 console.log("peopleinchat triggered from backend")
                 if (data.number === 0) {
-
-                    console.log("data.number is 0")
+                    $scope.status = "Waiting for other player"
+                    //console.log("data.number is 0")
                     localStorage.setItem("PLayer", "X");
                     // call the server-side function 'login' and send user's parameters  
                     socket.emit('login', {
@@ -33,15 +33,16 @@ angular.module('app')
 
 
                 } else if (data.number === 1) {
-                    console.log("data.number is 1")
-                    console.log(data)
+                    //console.log("data.number is 1")
+                    //console.log(data)
                     $scope.status = "Player Joined"
+                    $scope.$digest();
                     $scope.turn = true;
                     $scope.setup()
                     $scope.chatWith = data.user;
-                    console.log($scope.chatWith)
+                    //console.log($scope.chatWith)
                     $scope.name = data.user
-                    console.log("scope name is" + $scope.name)
+                    //console.log("scope name is" + $scope.name)
                     socket.emit('login', {
                         user: $rootScope.currentUser,
                         id: id
@@ -61,7 +62,8 @@ angular.module('app')
 
 
             socket.on('leave', function(data) {
-
+                $scope.status = "Opponent Disconnected"
+                $scope.$digest();
                 if (data.boolean && id == data.room) {
 
                     console.log("left", data);
@@ -90,26 +92,188 @@ angular.module('app')
         $scope.turn = -1
 
 
-        $scope.Values = [
+        $scope.Values00 = [
+            ['', '', ''],
+            ['', '', ''],
+            ['', '', '']
+        ]
+
+        $scope.Values01 = [
+            ['', '', ''],
+            ['', '', ''],
+            ['', '', '']
+        ]
+
+        $scope.Values02 = [
+            ['', '', ''],
+            ['', '', ''],
+            ['', '', '']
+        ]
+
+        $scope.Values10 = [
+            ['', '', ''],
+            ['', '', ''],
+            ['', '', '']
+        ]
+
+        $scope.Values11 = [
+            ['', '', ''],
+            ['', '', ''],
+            ['', '', '']
+        ]
+
+        $scope.Values12 = [
+            ['', '', ''],
+            ['', '', ''],
+            ['', '', '']
+        ]
+
+        $scope.Values20 = [
+            ['', '', ''],
+            ['', '', ''],
+            ['', '', '']
+        ]
+
+        $scope.Values21 = [
+            ['', '', ''],
+            ['', '', ''],
+            ['', '', '']
+        ]
+
+        $scope.Values22 = [
             ['', '', ''],
             ['', '', ''],
             ['', '', '']
         ]
 
 
-        var xValues = [
+        $scope.megaValues = [
+                [$scope.Values00, $scope.Values01, $scope.Values02],
+                [$scope.Values10, $scope.Values11, $scope.Values12],
+                [$scope.Values20, $scope.Values21, $scope.Values22]
+        ]        
+
+
+        var xValues00 = [
             [0, 0, 0],
             [0, 0, 0],
             [0, 0, 0]
-        ]
+        ]        
 
-        var yValues = [
+        var xValues01 = [
             [0, 0, 0],
             [0, 0, 0],
             [0, 0, 0]
-        ]
+        ]        
+
+        var xValues02 = [
+            [0, 0, 0],
+            [0, 0, 0],
+            [0, 0, 0]
+        ]        
+
+        var xValues10 = [
+            [0, 0, 0],
+            [0, 0, 0],
+            [0, 0, 0]
+        ]        
+
+        var xValues11 = [
+            [0, 0, 0],
+            [0, 0, 0],
+            [0, 0, 0]
+        ]        
+
+        var xValues12 = [
+            [0, 0, 0],
+            [0, 0, 0],
+            [0, 0, 0]
+        ]        
+        var xValues20 = [
+            [0, 0, 0],
+            [0, 0, 0],
+            [0, 0, 0]
+        ]        
+        var xValues21 = [
+            [0, 0, 0],
+            [0, 0, 0],
+            [0, 0, 0]
+        ]        
+        var xValues22 = [
+            [0, 0, 0],
+            [0, 0, 0],
+            [0, 0, 0]
+        ]        
 
 
+
+        var yValues00 = [
+            [0, 0, 0],
+            [0, 0, 0],
+            [0, 0, 0]
+        ]        
+
+        var yValues01 = [
+            [0, 0, 0],
+            [0, 0, 0],
+            [0, 0, 0]
+        ]        
+
+        var yValues02 = [
+            [0, 0, 0],
+            [0, 0, 0],
+            [0, 0, 0]
+        ]        
+
+        var yValues10 = [
+            [0, 0, 0],
+            [0, 0, 0],
+            [0, 0, 0]
+        ]        
+
+        var yValues11 = [
+            [0, 0, 0],
+            [0, 0, 0],
+            [0, 0, 0]
+        ]        
+
+        var yValues12 = [
+            [0, 0, 0],
+            [0, 0, 0],
+            [0, 0, 0]
+        ]        
+        var yValues20 = [
+            [0, 0, 0],
+            [0, 0, 0],
+            [0, 0, 0]
+        ]        
+        var yValues21 = [
+            [0, 0, 0],
+            [0, 0, 0],
+            [0, 0, 0]
+        ]        
+        var yValues22 = [
+            [0, 0, 0],
+            [0, 0, 0],
+            [0, 0, 0]
+        ]        
+
+
+
+        var megaXvalues = [
+                [xValues00, xValues01, xValues02],
+                [xValues10, xValues11, xValues12],
+                [xValues20, xValues21, xValues22]
+            ]        
+
+       var megaYvalues = [
+                [yValues00, yValues01, yValues02],
+                [yValues10, yValues11, yValues12],
+                [yValues20, yValues21, yValues22]
+            ]        
+        
+        ///console.log(test[0][0])   
+        //console.log(megaXvalues[0][0]);        
         $scope.winner = function(arr, candidate) {
 
             //Here I am basically doing the same thing again and it can be done more elegantly using recursion
@@ -237,15 +401,23 @@ angular.module('app')
             $scope.setValidMove($scope.id);
 
             if (data.user == "X") {
-                $scope.Values[data.x][data.y] = 'X'
-                xValues[data.x][data.y] = 1;
-                $scope.$digest();
+                var tempDisplay = $scope.megaValues[data.a][data.b];
+                tempDisplay[data.x][data.y] = 'X'                
+                //$scope.Values[data.x][data.y] = 'X'                
+                var tempValue = megaXvalues[data.a][data.b];
+                tempValue[data.x][data.y] = 1
+                //xValues[data.x][data.y] = 1;                
                 $scope.turn = !$scope.turn;
+                $scope.$digest();
             } else {
-                $scope.Values[data.x][data.y] = '0'
-                yValues[data.x][data.y] = 1;
-                $scope.$digest();
+                var tempDisplay = $scope.megaValues[data.a][data.b];
+                tempDisplay[data.x][data.y] = '0'                
+                //$scope.Values[data.x][data.y] = '0'
+                var tempValue = megaYvalues[data.a][data.b];
+                tempValue[data.x][data.y] = 1
+                //yValues[data.x][data.y] = 1;                
                 $scope.turn = !$scope.turn;
+                $scope.$digest();
             }
 
 
@@ -310,10 +482,15 @@ angular.module('app')
 
 
         $scope.play = function(a, b, x, y) {
-            if ($scope.Values[x][y] == '') {
+            var tempDisplay = $scope.megaValues[a][b];            
+            //if ($scope.Values[x][y] == '') {            
+            if (tempDisplay[x][y] == '') {
                 if ($scope.turn == true && $scope.player == 'X') {
-                    $scope.Values[x][y] = 'X'
-                    xValues[x][y] = 1;
+                    //$scope.Values[x][y] = 'X'                    
+                    tempDisplay[x][y] = 'X'                
+                    //xValues[x][y] = 1;
+                    var tempValue = megaXvalues[a][b];
+                    tempValue[x][y] = 1                    
                     $scope.setValidMove('reset')
                     socket.emit('move', {
                         user: 'X',
@@ -323,11 +500,15 @@ angular.module('app')
                         y: y
                     });
 
-                    $scope.winner(xValues, 'X');
+                    //$scope.winner(xValues00, 'X');
+                    $scope.winner(tempValue, 'X');
                     $scope.turn = !$scope.turn;
                 } else if ($scope.turn == false && $scope.player == '0') {
-                    $scope.Values[x][y] = '0'
-                    yValues[x][y] = 1;
+                    //$scope.Values[x][y] = '0'
+                    tempDisplay[x][y] = '0'                
+                    //yValues[x][y] = 1;
+                    var tempValue = megaYvalues[a][b];
+                    tempValue[x][y] = 1                    
                     $scope.setValidMove('reset')
                     socket.emit('move', {
                         user: '0',
@@ -336,7 +517,8 @@ angular.module('app')
                         x: x,
                         y: y
                     });
-                    $scope.winner(yValues, '0');
+                    //$scope.winner(yValues00, '0');
+                    $scope.winner(tempValue, '0');
                     $scope.turn = !$scope.turn;
                 } else {
                     console.log("Not enough players")
