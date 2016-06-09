@@ -1,57 +1,106 @@
 <style type="text/css">
 .cell {
-    background-color: #efefef;
-    width: 35px;
-    height: 35px;
+    /*    background-color: #efefef;
+*/
+    height: 55px;
     padding: 10px;
     text-align: center;
 }
+
+.big-top-left {
+    border-right: 2px solid #0084FF;
+    border-bottom: 2px solid #0084FF;
+}
+
+.big-top-middle {
+    border-right: 2px solid #0084FF;
+    border-bottom: 2px solid #0084FF;
+    border-left: 2px solid #0084FF;
+}
+
+.big-top-right {
+    border-bottom: 2px solid #0084FF;
+    border-left: 2px solid #0084FF;
+}
+
+.big-middle-left {
+    border-top: 2px solid #0084FF;
+    border-right: 2px solid #0084FF;
+    border-bottom: 2px solid #0084FF;
+}
+
+.big-middle-middle {
+    border: 2px solid #0084FF;
+}
+
+.big-middle-right {
+    border-top: 2px solid #0084FF;
+    border-bottom: 2px solid #0084FF;
+    border-left: 2px solid #0084FF;
+}
+
+.big-bottom-left {
+    border-top: 2px solid #0084FF;
+    border-right: 2px solid #0084FF;
+}
+
+.big-bottom-middle {
+    border-top: 2px solid #0084FF;
+    border-right: 2px solid #0084FF;
+    border-left: 2px solid #0084FF;
+}
+
+.big-bottom-right {
+    border-top: 2px solid #0084FF;
+    border-left: 2px solid #0084FF;
+}
+
 .top-left {
-    border-right: 1px solid #212121;
-    border-bottom: 1px solid #212121;
+    border-right: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
 }
 
 .top-middle {
-    border-right: 1px solid #212121;
-    border-bottom: 1px solid #212121;
-    border-left: 1px solid #212121;
+    border-right: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+    border-left: 1px solid #cccccc;
 }
 
 .top-right {
-    border-bottom: 1px solid #212121;
-    border-left: 1px solid #212121;
+    border-bottom: 1px solid #cccccc;
+    border-left: 1px solid #cccccc;
 }
 
 .middle-left {
-    border-top: 1px solid #212121;
-    border-right: 1px solid #212121;
-    border-bottom: 1px solid #212121;
+    border-top: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
 }
 
 .middle-middle {
-    border: 1px solid #212121;
+    border: 1px solid #cccccc;
 }
 
 .middle-right {
-    border-top: 1px solid #212121;
-    border-bottom: 1px solid #212121;
-    border-left: 1px solid #212121;
+    border-top: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+    border-left: 1px solid #cccccc;
 }
 
 .bottom-left {
-    border-top: 1px solid #212121;
-    border-right: 1px solid #212121;
+    border-top: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
 }
 
 .bottom-middle {
-    border-top: 1px solid #212121;
-    border-right: 1px solid #212121;
-    border-left: 1px solid #212121;
+    border-top: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+    border-left: 1px solid #cccccc;
 }
 
 .bottom-right {
-    border-top: 1px solid #212121;
-    border-left: 1px solid #212121;
+    border-top: 1px solid #cccccc;
+    border-left: 1px solid #cccccc;
 }
 
 .cell:hover {
@@ -60,331 +109,373 @@
 }
 
 .allowed-cell {
-    border: 1px solid #212121;
+    border: 1px solid #cccccc;
+    background: #F1F3FC;
+}
+
+.big-box {
+    border: 1px solid black;
 }
 </style>
-<div class="container">
-{{status}}
-{{turn}}
-    <div class="row" style="margin-bottom:30px; margin-top:30px;">
-        <div class="col-xs-4" id="00" ng-class="leftTop ? 'allowed-cell' : ''">
-            <div class="row">
-                <div class="col-xs-4 cell top-left" ng-click="play(0,0,0,0)">
-                    <p>{{Values00[0][0]}}</p>
-                </div>
-                <div class="col-xs-4 cell top-middle" ng-click="play(0,0,0,1)">
-                    <p>{{Values00[0][1]}}</p>
-                </div>
-                <div class="col-xs-4 cell top-right" ng-click="play(0,0,0,2)">
-                    <p>{{Values00[0][2]}}</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-4 cell middle-left" ng-click="play(0,0,1,0)">
-                    <p>{{Values00[1][0]}}</p>
-                </div>
-                <div class="col-xs-4 cell middle-middle" ng-click="play(0,0,1,1)">
-                    <p>{{Values00[1][1]}}</p>
-                </div>
-                <div class="col-xs-4 cell middle-right" ng-click="play(0,0,1,2)">
-                    <p>{{Values00[1][2]}}</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-4 cell bottom-left" ng-click="play(0,0,2,0)">
-                    <p>{{Values00[2][0]}}</p>
-                </div>
-                <div class="col-xs-4 cell bottom-middle" ng-click="play(0,0,2,1)">
-                    <p>{{Values00[2][1]}}</p>
-                </div>
-                <div class="col-xs-4 cell bottom-right" ng-click="play(0,0,2,2)">
-                    <p>{{Values00[2][2]}}</p>
-                </div>
-            </div>
+<div class="">
+    <div class="row">
+        <div class="col-md-3 col-lg-3 hidden-xs hidden-sm" style="background:#F8F9F7; height:900px;">
         </div>
-        <div class="col-xs-4" id="01" ng-class="middleTop ? 'allowed-cell' : ''">
-            <div class="row">
-                <div class="col-xs-4 cell top-left" ng-click="play(0,1,0,0)">
-                    <p>{{Values01[0][0]}}</p>
-                </div>
-                <div class="col-xs-4 cell top-middle" ng-click="play(0,1,0,1)">
-                    <p>{{Values01[0][1]}}</p>
-                </div>
-                <div class="col-xs-4 cell top-right" ng-click="play(0,1,0,2)">
-                    <p>{{Values01[0][2]}}</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-4 cell middle-left" ng-click="play(0,1,1,0)">
-                    <p>{{Values01[1][0]}}</p>
-                </div>
-                <div class="col-xs-4 cell middle-middle" ng-click="play(0,1,1,1)">
-                    <p>{{Values01[1][1]}}</p>
-                </div>
-                <div class="col-xs-4 cell middle-right" ng-click="play(0,1,1,2)">
-                    <p>{{Values01[1][2]}}</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-4 cell bottom-left" ng-click="play(0,1,2,0)">
-                    <p>{{Values01[2][0]}}</p>
-                </div>
-                <div class="col-xs-4 cell bottom-middle" ng-click="play(0,1,2,1)">
-                    <p>{{Values01[2][1]}}</p>
-                </div>
-                <div class="col-xs-4 cell bottom-right" ng-click="play(0,1,2,2)">
-                    <p>{{Values01[2][2]}}</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-4" id="02" ng-class="rightTop ? 'allowed-cell' : ''">
-            <div class="row">
-                <div class="col-xs-4 cell top-left" ng-click="play(0,2,0,0)">
-                    <p>{{Values02[0][0]}}</p>
-                </div>
-                <div class="col-xs-4 cell top-middle" ng-click="play(0,2,0,1)">
-                    <p>{{Values02[0][1]}}</p>
-                </div>
-                <div class="col-xs-4 cell top-right" ng-click="play(0,2,0,2)">
-                    <p>{{Values02[0][2]}}</p>
+        <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+            <div class="row" style="background:#F1F3FC;height:100px;padding:10px;">
+                <div class="col-xs-12 col-sm- 12 col-md-12 col-lg-12" style="padding:5px;padding-right:35px;">
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6" style="border-right:2px solid #cccccc">
+                        <div class="col-xs-2">
+                            <img style="border-radius:50%" src="https://lh3.googleusercontent.com/-_fia5H63Ggs/AAAAAAAAAAI/AAAAAAAAFjM/v9uEc964USU/photo.jpg?sz=70">
+                        </div>
+                        <div class="col-xs-8">
+                            <p class="username">Vishal Ranjan</p>
+                            <p class="points">3,12,345</p>
+                        </div>
+                        <div class="col-xs-2">
+                            <p class="symbol cross">X</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                        <div class="col-xs-2">
+                            <p class="symbol zero">O</p>
+                        </div>
+                        <div class="col-xs-8">
+                            <p class="username">Deepika Padukone</p>
+                            <p class="points">1,45,127</p>
+                        </div>
+                        <div class="col-xs-2">
+                            <img style="border-radius:50%" src="http://images.iimg.in/c/56a785ddc55d3212178b464f-4-60-60-1453819376/flickr/deepikapadukone-56a785ddccf20.img?crop=1">
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-4 cell middle-left" ng-click="play(0,2,1,0)">
-                    <p>{{Values02[1][0]}}</p>
-                </div>
-                <div class="col-xs-4 cell middle-middle" ng-click="play(0,2,1,1)">
-                    <p>{{Values02[1][1]}}</p>
-                </div>
-                <div class="col-xs-4 cell middle-right" ng-click="play(0,2,1,2)">
-                    <p>{{Values02[1][2]}}</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-4 cell bottom-left" ng-click="play(0,2,2,0)">
-                    <p>{{Values02[2][0]}}</p>
-                </div>
-                <div class="col-xs-4 cell bottom-middle" ng-click="play(0,2,2,1)">
-                    <p>{{Values02[2][1]}}</p>
-                </div>
-                <div class="col-xs-4 cell bottom-right" ng-click="play(0,2,2,2)">
-                    <p>{{Values02[2][2]}}</p>
+                <div class="col-xs-12 col-sm-12 col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8">
+                    <div class="row">
+                        <div class="col-xs-4 big-top-left" id="00" ng-class="leftTop ? 'allowed-cell' : ''">
+                            <div class="row">
+                                <div class="col-xs-4 cell top-left" ng-click="play(0,0,0,0)">
+                                    <p ng-class=" Values00[0][0] =='X' ? 'cross-play':'zero-play' ">{{Values00[0][0]}}</p>
+                                </div>
+                                <div class="col-xs-4 cell top-middle" ng-click="play(0,0,0,1)">
+                                    <p ng-class=" Values00[0][1] =='X' ? 'cross-play':'zero-play' " >{{Values00[0][1]}}</p>
+                                </div>
+                                <div class="col-xs-4 cell top-right" ng-click="play(0,0,0,2)">
+                                    <p ng-class=" Values02[0][2] =='X' ? 'cross-play':'zero-play' ">{{Values00[0][2]}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-4 cell middle-left" ng-click="play(0,0,1,0)">
+                                    <p ng-class=" Values00[1][0] =='X' ? 'cross-play':'zero-play' ">{{Values00[1][0]}}</p>
+                                </div>
+                                <div class="col-xs-4 cell middle-middle" ng-click="play(0,0,1,1)">
+                                    <p ng-class=" Values00[1][1] =='X' ? 'cross-play':'zero-play' ">{{Values00[1][1]}}</p>
+                                </div>
+                                <div class="col-xs-4 cell middle-right" ng-click="play(0,0,1,2)">
+                                    <p ng-class=" Values00[1][2] =='X' ? 'cross-play':'zero-play' ">{{Values00[1][2]}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-4 cell bottom-left" ng-click="play(0,0,2,0)">
+                                    <p ng-class=" Values00[2][0] =='X' ? 'cross-play':'zero-play' ">{{Values00[2][0]}}</p>
+                                </div>
+                                <div class="col-xs-4 cell bottom-middle" ng-click="play(0,0,2,1)">
+                                    <p ng-class=" Values00[2][1] =='X' ? 'cross-play':'zero-play' ">{{Values00[2][1]}}</p>
+                                </div>
+                                <div class="col-xs-4 cell bottom-right" ng-click="play(0,0,2,2)">
+                                    <p ng-class=" Values00[2][2] =='X' ? 'cross-play':'zero-play' ">{{Values00[2][2]}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-4 big-top-middle" id="01" ng-class="middleTop ? 'allowed-cell' : ''">
+                            <div class="row">
+                                <div class="col-xs-4 cell top-left" ng-click="play(0,1,0,0)">
+                                    <p ng-class=" Values01[0][0] =='X' ? 'cross-play':'zero-play' ">{{Values01[0][0]}}</p>
+                                </div>
+                                <div class="col-xs-4 cell top-middle" ng-click="play(0,1,0,1)">
+                                    <p ng-class=" Values01[0][1] =='X' ? 'cross-play':'zero-play' ">{{Values01[0][1]}}</p>
+                                </div>
+                                <div class="col-xs-4 cell top-right" ng-click="play(0,1,0,2)">
+                                    <p ng-class=" Values01[0][2] =='X' ? 'cross-play':'zero-play' ">{{Values01[0][2]}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-4 cell middle-left" ng-click="play(0,1,1,0)">
+                                    <p ng-class=" Values01[1][0] =='X' ? 'cross-play':'zero-play' ">{{Values01[1][0]}}</p>
+                                </div>
+                                <div class="col-xs-4 cell middle-middle" ng-click="play(0,1,1,1)">
+                                    <p ng-class=" Values01[1][1] =='X' ? 'cross-play':'zero-play' ">{{Values01[1][1]}}</p>
+                                </div>
+                                <div class="col-xs-4 cell middle-right" ng-click="play(0,1,1,2)">
+                                    <p ng-class=" Values01[1][2] =='X' ? 'cross-play':'zero-play' ">{{Values01[1][2]}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-4 cell bottom-left" ng-click="play(0,1,2,0)">
+                                    <p ng-class=" Values01[2][0] =='X' ? 'cross-play':'zero-play' ">{{Values01[2][0]}}</p>
+                                </div>
+                                <div class="col-xs-4 cell bottom-middle" ng-click="play(0,1,2,1)">
+                                    <p ng-class=" Values01[2][1] =='X' ? 'cross-play':'zero-play' ">{{Values01[2][1]}}</p>
+                                </div>
+                                <div class="col-xs-4 cell bottom-right" ng-click="play(0,1,2,2)">
+                                    <p ng-class=" Values01[2][2] =='X' ? 'cross-play':'zero-play' ">{{Values01[2][2]}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-4 big-top-right" id="02" ng-class="rightTop ? 'allowed-cell' : ''">
+                            <div class="row">
+                                <div class="col-xs-4 cell top-left" ng-click="play(0,2,0,0)">
+                                    <p ng-class=" Values02[0][0] =='X' ? 'cross-play':'zero-play' ">{{Values02[0][0]}}</p>
+                                </div>
+                                <div class="col-xs-4 cell top-middle" ng-click="play(0,2,0,1)">
+                                    <p ng-class=" Values02[0][1] =='X' ? 'cross-play':'zero-play' ">{{Values02[0][1]}}</p>
+                                </div>
+                                <div class="col-xs-4 cell top-right" ng-click="play(0,2,0,2)">
+                                    <p ng-class=" Values02[0][2] =='X' ? 'cross-play':'zero-play' ">{{Values02[0][2]}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-4 cell middle-left" ng-click="play(0,2,1,0)">
+                                    <p ng-class=" Values02[1][0] =='X' ? 'cross-play':'zero-play' ">{{Values02[1][0]}}</p>
+                                </div>
+                                <div class="col-xs-4 cell middle-middle" ng-click="play(0,2,1,1)">
+                                    <p ng-class=" Values02[1][1] =='X' ? 'cross-play':'zero-play' ">{{Values02[1][1]}}</p>
+                                </div>
+                                <div class="col-xs-4 cell middle-right" ng-click="play(0,2,1,2)">
+                                    <p ng-class=" Values02[1][2] =='X' ? 'cross-play':'zero-play' ">{{Values02[1][2]}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-4 cell bottom-left" ng-click="play(0,2,2,0)">
+                                    <p ng-class=" Values02[2][0] =='X' ? 'cross-play':'zero-play' ">{{Values02[2][0]}}</p>
+                                </div>
+                                <div class="col-xs-4 cell bottom-middle" ng-click="play(0,2,2,1)">
+                                    <p ng-class=" Values02[2][1] =='X' ? 'cross-play':'zero-play' ">{{Values02[2][1]}}</p>
+                                </div>
+                                <div class="col-xs-4 cell bottom-right" ng-click="play(0,2,2,2)">
+                                    <p ng-class=" Values02[2][2] =='X' ? 'cross-play':'zero-play' ">{{Values02[2][2]}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-4 big-middle-left" id="10" ng-class="leftMiddle ? 'allowed-cell' : ''">
+                            <div class="row">
+                                <div class="col-xs-4 cell top-left" ng-click="play(1,0,0,0)">
+                                    <p ng-class=" Values10[0][0] =='X' ? 'cross-play':'zero-play' " >{{Values10[0][0]}}</p>
+                                </div>
+                                <div class="col-xs-4 cell top-middle" ng-click="play(1,0,0,1)">
+                                    <p ng-class=" Values10[0][1] =='X' ? 'cross-play':'zero-play' " >{{Values10[0][1]}}</p>
+                                </div>
+                                <div class="col-xs-4 cell top-right" ng-click="play(1,0,0,2)">
+                                    <p ng-class=" Values10[0][2] =='X' ? 'cross-play':'zero-play' " >{{Values10[0][2]}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-4 cell middle-left" ng-click="play(1,0,1,0)">
+                                    <p ng-class=" Values10[1][0] =='X' ? 'cross-play':'zero-play' " >{{Values10[1][0]}}</p>
+                                </div>
+                                <div class="col-xs-4 cell middle-middle" ng-click="play(1,0,1,1)">
+                                    <p ng-class=" Values10[1][1] =='X' ? 'cross-play':'zero-play' " >{{Values10[1][1]}}</p>
+                                </div>
+                                <div class="col-xs-4 cell middle-right" ng-click="play(1,0,1,2)">
+                                    <p ng-class=" Values10[1][2] =='X' ? 'cross-play':'zero-play' " >{{Values10[1][2]}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-4 cell bottom-left" ng-click="play(1,0,2,0)">
+                                    <p ng-class=" Values10[2][0] =='X' ? 'cross-play':'zero-play' " >{{Values10[2][0]}}</p>
+                                </div>
+                                <div class="col-xs-4 cell bottom-middle" ng-click="play(1,0,2,1)">
+                                    <p ng-class=" Values10[2][1] =='X' ? 'cross-play':'zero-play' " >{{Values10[2][1]}}</p>
+                                </div>
+                                <div class="col-xs-4 cell bottom-right" ng-click="play(1,0,2,2)">
+                                    <p ng-class=" Values10[2][2] =='X' ? 'cross-play':'zero-play' " >{{Values10[2][2]}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-4 big-middle-middle" id="11" ng-class="middleMiddle ? 'allowed-cell' : ''">
+                            <div class="row">
+                                <div class="col-xs-4 cell top-left" ng-click="play(1,1,0,0)">
+                                    <p ng-class=" Values11[0][0] =='X' ? 'cross-play':'zero-play' " >{{Values11[0][0]}}</p>
+                                </div>
+                                <div class="col-xs-4 cell top-middle" ng-click="play(1,1,0,1)">
+                                    <p ng-class=" Values11[0][1] =='X' ? 'cross-play':'zero-play' " >{{Values11[0][1]}}</p>
+                                </div>
+                                <div class="col-xs-4 cell top-right" ng-click="play(1,1,0,2)">
+                                    <p ng-class=" Values11[0][2] =='X' ? 'cross-play':'zero-play' " >{{Values11[0][2]}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-4 cell middle-left" ng-click="play(1,1,1,0)">
+                                    <p ng-class=" Values11[1][0] =='X' ? 'cross-play':'zero-play' " >{{Values11[1][0]}}</p>
+                                </div>
+                                <div class="col-xs-4 cell middle-middle" ng-click="play(1,1,1,1)">
+                                    <p ng-class=" Values11[1][1] =='X' ? 'cross-play':'zero-play' " >{{Values11[1][1]}}</p>
+                                </div>
+                                <div class="col-xs-4 cell middle-right" ng-click="play(1,1,1,2)">
+                                    <p ng-class=" Values11[1][2] =='X' ? 'cross-play':'zero-play' " >{{Values11[1][2]}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-4 cell bottom-left" ng-click="play(1,1,2,0)">
+                                    <p ng-class=" Values11[2][0] =='X' ? 'cross-play':'zero-play' " >{{Values11[2][0]}}</p>
+                                </div>
+                                <div class="col-xs-4 cell bottom-middle" ng-click="play(1,1,2,1)">
+                                    <p ng-class=" Values11[2][1] =='X' ? 'cross-play':'zero-play' " >{{Values11[2][1]}}</p>
+                                </div>
+                                <div class="col-xs-4 cell bottom-right" ng-click="play(1,1,2,2)">
+                                    <p ng-class=" Values11[2][2] =='X' ? 'cross-play':'zero-play' " >{{Values11[2][2]}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-4 big-middle-right" id="12" ng-class="rightMiddle ? 'allowed-cell' : ''">
+                            <div class="row">
+                                <div class="col-xs-4 cell top-left" ng-click="play(1,2,0,0)">
+                                    <p ng-class=" Values12[0][0] =='X' ? 'cross-play':'zero-play' " >{{Values12[0][0]}}</p>
+                                </div>
+                                <div class="col-xs-4 cell top-middle" ng-click="play(1,2,0,1)">
+                                    <p ng-class=" Values12[0][1] =='X' ? 'cross-play':'zero-play' ">{{Values12[0][1]}}</p>
+                                </div>
+                                <div class="col-xs-4 cell top-right" ng-click="play(1,2,0,2)">
+                                    <p ng-class=" Values12[0][2] =='X' ? 'cross-play':'zero-play' ">{{Values12[0][2]}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-4 cell middle-left" ng-click="play(1,2,1,0)">
+                                    <p ng-class=" Values12[1][0] =='X' ? 'cross-play':'zero-play' ">{{Values12[1][0]}}</p>
+                                </div>
+                                <div class="col-xs-4 cell middle-middle" ng-click="play(1,2,1,1)">
+                                    <p ng-class=" Values12[1][1] =='X' ? 'cross-play':'zero-play' ">{{Values12[1][1]}}</p>
+                                </div>
+                                <div class="col-xs-4 cell middle-right" ng-click="play(1,2,1,2)">
+                                    <p ng-class=" Values12[1][2] =='X' ? 'cross-play':'zero-play' ">{{Values12[1][2]}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-4 cell bottom-left" ng-click="play(1,2,2,0)">
+                                    <p ng-class=" Values12[2][0] =='X' ? 'cross-play':'zero-play' ">{{Values12[2][0]}}</p>
+                                </div>
+                                <div class="col-xs-4 cell bottom-middle" ng-click="play(1,2,2,1)">
+                                    <p ng-class=" Values12[2][1] =='X' ? 'cross-play':'zero-play' ">{{Values12[2][1]}}</p>
+                                </div>
+                                <div class="col-xs-4 cell bottom-right" ng-click="play(1,2,2,2)">
+                                    <p ng-class=" Values12[2][2] =='X' ? 'cross-play':'zero-play' ">{{Values12[2][2]}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-4 big-bottom-left " id="20" ng-class="leftBottom ? 'allowed-cell' : ''">
+                            <div class="row">
+                                <div class="col-xs-4 cell top-left" ng-click="play(2,0,0,0)">
+                                    <p ng-class=" Values20[0][0] =='X' ? 'cross-play':'zero-play' ">{{Values20[0][0]}}</p>
+                                </div>
+                                <div class="col-xs-4 cell top-middle" ng-click="play(2,0,0,1)">
+                                    <p ng-class=" Values20[0][1] =='X' ? 'cross-play':'zero-play' ">{{Values20[0][1]}}</p>
+                                </div>
+                                <div class="col-xs-4 cell top-right" ng-click="play(2,0,0,2)">
+                                    <p ng-class=" Values20[0][2] =='X' ? 'cross-play':'zero-play' ">{{Values20[0][2]}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-4 cell middle-left" ng-click="play(2,0,1,0)">
+                                    <p ng-class=" Values20[1][0] =='X' ? 'cross-play':'zero-play' ">{{Values20[1][0]}}</p>
+                                </div>
+                                <div class="col-xs-4 cell middle-middle" ng-click="play(2,0,1,1)">
+                                    <p ng-class=" Values20[1][1] =='X' ? 'cross-play':'zero-play' " >{{Values20[1][1]}}</p>
+                                </div>
+                                <div class="col-xs-4 cell middle-right" ng-click="play(2,0,1,2)">
+                                    <p ng-class=" Values20[1][2] =='X' ? 'cross-play':'zero-play' ">{{Values20[1][2]}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-4 cell bottom-left" ng-click="play(2,0,2,0)">
+                                    <p ng-class=" Values20[2][0] =='X' ? 'cross-play':'zero-play' ">{{Values20[2][0]}}</p>
+                                </div>
+                                <div class="col-xs-4 cell bottom-middle" ng-click="play(2,0,2,1)">
+                                    <p ng-class=" Values20[2][1] =='X' ? 'cross-play':'zero-play' ">{{Values20[2][1]}}</p>
+                                </div>
+                                <div class="col-xs-4 cell bottom-right" ng-click="play(2,0,2,2)">
+                                    <p ng-class=" Values20[2][2] =='X' ? 'cross-play':'zero-play' ">{{Values20[2][2]}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-4 big-bottom-middle" id="21" ng-class="middleBottom ? 'allowed-cell' : ''">
+                            <div class="row">
+                                <div class="col-xs-4 cell top-left" ng-click="play(2,1,0,0)">
+                                    <p ng-class=" Values21[0][0] =='X' ? 'cross-play':'zero-play' ">{{Values21[0][0]}}</p>
+                                </div>
+                                <div class="col-xs-4 cell top-middle" ng-click="play(2,1,0,1)">
+                                    <p ng-class=" Values21[0][1] =='X' ? 'cross-play':'zero-play' ">{{Values21[0][1]}}</p>
+                                </div>
+                                <div class="col-xs-4 cell top-right" ng-click="play(2,1,0,2)">
+                                    <p ng-class=" Values21[0][2] =='X' ? 'cross-play':'zero-play' ">{{Values21[0][2]}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-4 cell middle-left" ng-click="play(2,1,1,0)">
+                                    <p ng-class=" Values21[1][0] =='X' ? 'cross-play':'zero-play' ">{{Values21[1][0]}}</p>
+                                </div>
+                                <div class="col-xs-4 cell middle-middle" ng-click="play(2,1,1,1)">
+                                    <p ng-class=" Values21[1][1] =='X' ? 'cross-play':'zero-play' ">{{Values21[1][1]}}</p>
+                                </div>
+                                <div class="col-xs-4 cell middle-right" ng-click="play(2,1,1,2)">
+                                    <p ng-class=" Values21[1][2] =='X' ? 'cross-play':'zero-play' ">{{Values21[1][2]}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-4 cell bottom-left" ng-click="play(2,1,2,0)">
+                                    <p ng-class=" Values21[2][0] =='X' ? 'cross-play':'zero-play' ">{{Values21[2][0]}}</p>
+                                </div>
+                                <div class="col-xs-4 cell bottom-middle" ng-click="play(2,1,2,1)">
+                                    <p ng-class=" Values21[2][1] =='X' ? 'cross-play':'zero-play' ">{{Values21[2][1]}}</p>
+                                </div>
+                                <div class="col-xs-4 cell bottom-right" ng-click="play(2,1,2,2)">
+                                    <p ng-class=" Values21[2][2] =='X' ? 'cross-play':'zero-play' ">{{Values21[2][2]}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-4 big-bottom-right" id="22" ng-class="rightBottom ? 'allowed-cell' : ''">
+                            <div class="row">
+                                <div class="col-xs-4 cell top-left" ng-click="play(2,2,0,0)">
+                                    <p ng-class=" Values22[0][0] =='X' ? 'cross-play':'zero-play' ">{{Values22[0][0]}}</p>
+                                </div>
+                                <div class="col-xs-4 cell top-middle" ng-click="play(2,2,0,1)">
+                                    <p ng-class=" Values22[0][1] =='X' ? 'cross-play':'zero-play' ">{{Values22[0][1]}}</p>
+                                </div>
+                                <div class="col-xs-4 cell top-right" ng-click="play(2,2,0,2)">
+                                    <p ng-class=" Values22[0][2] =='X' ? 'cross-play':'zero-play' ">{{Values22[0][2]}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-4 cell middle-left" ng-click="play(2,2,1,0)">
+                                    <p ng-class=" Values22[1][0] =='X' ? 'cross-play':'zero-play' ">{{Values22[1][0]}}</p>
+                                </div>
+                                <div class="col-xs-4 cell middle-middle" ng-click="play(2,2,1,1)">
+                                    <p ng-class=" Values22[1][1] =='X' ? 'cross-play':'zero-play' ">{{Values22[1][1]}}</p>
+                                </div>
+                                <div class="col-xs-4 cell middle-right" ng-click="play(2,2,1,2)">
+                                    <p ng-class=" Values22[1][2] =='X' ? 'cross-play':'zero-play' ">{{Values22[1][2]}}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-4 cell bottom-left" ng-click="play(2,2,2,0)">
+                                    <p ng-class=" Values22[2][0] =='X' ? 'cross-play':'zero-play' ">{{Values22[2][0]}}</p>
+                                </div>
+                                <div class="col-xs-4 cell bottom-middle" ng-click="play(2,2,2,1)">
+                                    <p ng-class=" Values22[2][1] =='X' ? 'cross-play':'zero-play' ">{{Values22[2][1]}}</p>
+                                </div>
+                                <div class="col-xs-4 cell bottom-right" ng-click="play(2,2,2,2)">
+                                    <p ng-class=" Values22[2][2] =='X' ? 'cross-play':'zero-play' ">{{Values22[2][2]}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="row" style="margin-bottom:30px; margin-top:30px;">
-        <div class="col-xs-4" id="10" ng-class="leftMiddle ? 'allowed-cell' : ''">
-            <div class="row">
-                <div class="col-xs-4 cell top-left" ng-click="play(1,0,0,0)">
-                    <p>{{Values10[0][0]}}</p>
-                </div>
-                <div class="col-xs-4 cell top-middle" ng-click="play(1,0,0,1)">
-                    <p>{{Values10[0][1]}}</p>
-                </div>
-                <div class="col-xs-4 cell top-right" ng-click="play(1,0,0,2)">
-                    <p>{{Values10[0][2]}}</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-4 cell middle-left" ng-click="play(1,0,1,0)">
-                    <p>{{Values10[1][0]}}</p>
-                </div>
-                <div class="col-xs-4 cell middle-middle" ng-click="play(1,0,1,1)">
-                    <p>{{Values10[1][1]}}</p>
-                </div>
-                <div class="col-xs-4 cell middle-right" ng-click="play(1,0,1,2)">
-                    <p>{{Values10[1][2]}}</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-4 cell bottom-left" ng-click="play(1,0,2,0)">
-                    <p>{{Values10[2][0]}}</p>
-                </div>
-                <div class="col-xs-4 cell bottom-middle" ng-click="play(1,0,2,1)">
-                    <p>{{Values10[2][1]}}</p>
-                </div>
-                <div class="col-xs-4 cell bottom-right" ng-click="play(1,0,2,2)">
-                    <p>{{Values10[2][2]}}</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-4" id="11" ng-class="middleMiddle ? 'allowed-cell' : ''">
-            <div class="row">
-                <div class="col-xs-4 cell top-left" ng-click="play(1,1,0,0)">
-                    <p>{{Values11[0][0]}}</p>
-                </div>
-                <div class="col-xs-4 cell top-middle" ng-click="play(1,1,0,1)">
-                    <p>{{Values11[0][1]}}</p>
-                </div>
-                <div class="col-xs-4 cell top-right" ng-click="play(1,1,0,2)">
-                    <p>{{Values11[0][2]}}</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-4 cell middle-left" ng-click="play(1,1,1,0)">
-                    <p>{{Values11[1][0]}}</p>
-                </div>
-                <div class="col-xs-4 cell middle-middle" ng-click="play(1,1,1,1)">
-                    <p>{{Values11[1][1]}}</p>
-                </div>
-                <div class="col-xs-4 cell middle-right" ng-click="play(1,1,1,2)">
-                    <p>{{Values11[1][2]}}</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-4 cell bottom-left" ng-click="play(1,1,2,0)">
-                    <p>{{Values11[2][0]}}</p>
-                </div>
-                <div class="col-xs-4 cell bottom-middle" ng-click="play(1,1,2,1)">
-                    <p>{{Values11[2][1]}}</p>
-                </div>
-                <div class="col-xs-4 cell bottom-right" ng-click="play(1,1,2,2)">
-                    <p>{{Values11[2][2]}}</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-4" id="12" ng-class="rightMiddle ? 'allowed-cell' : ''">
-            <div class="row">
-                <div class="col-xs-4 cell top-left" ng-click="play(1,2,0,0)">
-                    <p>{{Values12[0][0]}}</p>
-                </div>
-                <div class="col-xs-4 cell top-middle" ng-click="play(1,2,0,1)">
-                    <p>{{Values12[0][1]}}</p>
-                </div>
-                <div class="col-xs-4 cell top-right" ng-click="play(1,2,0,2)">
-                    <p>{{Values12[0][2]}}</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-4 cell middle-left" ng-click="play(1,2,1,0)">
-                    <p>{{Values12[1][0]}}</p>
-                </div>
-                <div class="col-xs-4 cell middle-middle" ng-click="play(1,2,1,1)">
-                    <p>{{Values12[1][1]}}</p>
-                </div>
-                <div class="col-xs-4 cell middle-right" ng-click="play(1,2,1,2)">
-                    <p>{{Values12[1][2]}}</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-4 cell bottom-left" ng-click="play(1,2,2,0)">
-                    <p>{{Values12[2][0]}}</p>
-                </div>
-                <div class="col-xs-4 cell bottom-middle" ng-click="play(1,2,2,1)">
-                    <p>{{Values12[2][1]}}</p>
-                </div>
-                <div class="col-xs-4 cell bottom-right" ng-click="play(1,2,2,2)">
-                    <p>{{Values12[2][2]}}</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row" style="margin-bottom:30px; margin-top:30px">
-        <div class="col-xs-4" id="20" ng-class="leftBottom ? 'allowed-cell' : ''">
-            <div class="row">
-                <div class="col-xs-4 cell top-left" ng-click="play(2,0,0,0)">
-                    <p>{{Values20[0][0]}}</p>
-                </div>
-                <div class="col-xs-4 cell top-middle" ng-click="play(2,0,0,1)">
-                    <p>{{Values20[0][1]}}</p>
-                </div>
-                <div class="col-xs-4 cell top-right" ng-click="play(2,0,0,2)">
-                    <p>{{Values20[0][2]}}</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-4 cell middle-left" ng-click="play(2,0,1,0)">
-                    <p>{{Values20[1][0]}}</p>
-                </div>
-                <div class="col-xs-4 cell middle-middle" ng-click="play(2,0,1,1)">
-                    <p>{{Values20[1][1]}}</p>
-                </div>
-                <div class="col-xs-4 cell middle-right" ng-click="play(2,0,1,2)">
-                    <p>{{Values20[1][2]}}</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-4 cell bottom-left" ng-click="play(2,0,2,0)">
-                    <p>{{Values20[2][0]}}</p>
-                </div>
-                <div class="col-xs-4 cell bottom-middle" ng-click="play(2,0,2,1)">
-                    <p>{{Values20[2][1]}}</p>
-                </div>
-                <div class="col-xs-4 cell bottom-right" ng-click="play(2,0,2,2)">
-                    <p>{{Values20[2][2]}}</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-4" id="21" ng-class="middleBottom ? 'allowed-cell' : ''">
-            <div class="row">
-                <div class="col-xs-4 cell top-left" ng-click="play(2,1,0,0)">
-                    <p>{{Values21[0][0]}}</p>
-                </div>
-                <div class="col-xs-4 cell top-middle" ng-click="play(2,1,0,1)">
-                    <p>{{Values21[0][1]}}</p>
-                </div>
-                <div class="col-xs-4 cell top-right" ng-click="play(2,1,0,2)">
-                    <p>{{Values21[0][2]}}</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-4 cell middle-left" ng-click="play(2,1,1,0)">
-                    <p>{{Values21[1][0]}}</p>
-                </div>
-                <div class="col-xs-4 cell middle-middle" ng-click="play(2,1,1,1)">
-                    <p>{{Values21[1][1]}}</p>
-                </div>
-                <div class="col-xs-4 cell middle-right" ng-click="play(2,1,1,2)">
-                    <p>{{Values21[1][2]}}</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-4 cell bottom-left" ng-click="play(2,1,2,0)">
-                    <p>{{Values21[2][0]}}</p>
-                </div>
-                <div class="col-xs-4 cell bottom-middle" ng-click="play(2,1,2,1)">
-                    <p>{{Values21[2][1]}}</p>
-                </div>
-                <div class="col-xs-4 cell bottom-right" ng-click="play(2,1,2,2)">
-                    <p>{{Values21[2][2]}}</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-4" id="22" ng-class="rightBottom ? 'allowed-cell' : ''">
-            <div class="row">
-                <div class="col-xs-4 cell top-left" ng-click="play(2,2,0,0)">
-                    <p>{{Values22[0][0]}}</p>
-                </div>
-                <div class="col-xs-4 cell top-middle" ng-click="play(2,2,0,1)">
-                    <p>{{Values22[0][1]}}</p>
-                </div>
-                <div class="col-xs-4 cell top-right" ng-click="play(2,2,0,2)">
-                    <p>{{Values22[0][2]}}</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-4 cell middle-left" ng-click="play(2,2,1,0)">
-                    <p>{{Values22[1][0]}}</p>
-                </div>
-                <div class="col-xs-4 cell middle-middle" ng-click="play(2,2,1,1)">
-                    <p>{{Values22[1][1]}}</p>
-                </div>
-                <div class="col-xs-4 cell middle-right" ng-click="play(2,2,1,2)">
-                    <p>{{Values22[1][2]}}</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-4 cell bottom-left" ng-click="play(2,2,2,0)">
-                    <p>{{Values22[2][0]}}</p>
-                </div>
-                <div class="col-xs-4 cell bottom-middle" ng-click="play(2,2,2,1)">
-                    <p>{{Values22[2][1]}}</p>
-                </div>
-                <div class="col-xs-4 cell bottom-right" ng-click="play(2,2,2,2)">
-                    <p>{{Values22[2][2]}}</p>
-                </div>
-            </div>
-        </div>
-    </div>
+    {{status}} {{turn}}
 </div>
